@@ -1,15 +1,17 @@
 body {
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height:150vh;
-    background-color: rgba(168, 167, 167, 0.6);
+    height:100vh;
+    background-color: #e7e8de;
   }
   /*Create the card container*/
   .birthdayCard {
     position: relative;
     width: 250px;
     height:350px;
+    zoom: 125%;
     cursor: pointer;
     transform-style: preserve-3d;
     transform: perspective(2500px);
@@ -40,7 +42,7 @@ body {
   }
 
   /*pode remover se quiser deixar o bolo*/
-  .birthdayCard:hover .plate {
+  .birthdayCard:hover .foto {
     display: none;
   }
    /**********/
@@ -48,7 +50,7 @@ body {
   /*Style the front of the card*/
   .cardFront {
     position: relative;
-    background-color: rgb(255, 246, 246);
+    background-color: #D8E6E1;
     width: 250px;
     height:350px;
     overflow: hidden;
@@ -57,28 +59,34 @@ body {
     transition: .4s;
   }
   
-  .happy, .toyou {
+  .happy, .year {
     position: relative;
-    font-family: didot;
+    font-family: "satisfy", cursive;
     text-align: center;
     backface-visibility: hidden;
-    font-size: 30px; 
+    font-size: 40px;
+    line-height: 55px;
   }
   
   .happy {
-    top:198px;
+    top: 180px;
+    color: #E1B866;
   }
   
-  .toyou {
+  .year {
     top:123px;
+    color: #373B44;
   }
   
-  .bday {
+  .married {
     position: relative;
-    font-family: arial;
-    font-size: 30px;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
     text-align: center;
-    top:163px;
+    top: 75px;
+    left: -2px;
+    color: rgba(55, 59, 68, 0.5);
   }
   
   .wrap-deco {
@@ -105,28 +113,28 @@ body {
   }
   
   .decorations:before {
-    border-top: 40px solid #f15bb5;
+    border-top: 40px solid #73C8A9;
     top:297px;
     left:210px;
     transform: rotate(-5deg);
   }
   
   .decorations:after{
-    border-top: 40px solid #f4d35e;
+    border-top: 40px solid #E69AB2;
     top:288px;
     left:260px;
     transform: rotate(-17deg);
   }
   
   .decorationsTwo:before {
-    border-top: 40px solid #00f5d4;
+    border-top: 40px solid #BD5532;
     top:268px;
     left:315px;
     transform: rotate(-30deg);
   }
   
   .decorationsTwo:after, .decorationsThree:after {
-    border-top: 40px solid #9b5de5;
+    border-top: 40px solid #E1B866;
     top:238px;
     left:355px;
     transform: rotate(-40deg);
@@ -140,81 +148,33 @@ body {
   }
   
   .decorationsThree:before {
-    border-top: 40px solid #00bbf9;
+    border-top: 40px solid #73C8A9;
     top:268px;
     left:315px;
     transform: rotate(-30deg);
   }
   
-  .plate {
+  .foto {
     position: absolute;
-    width: 130px;
-    height: 5px;
-    background-color: #00bbf9;
-    left:60px;
-    top:213px;
+    left: 75px;
+    top: 120px;
   }
-  
-  .cake {
-    position: absolute;
-    overflow: hidden;
-    width:100px;
-    height: 50px;
-    background-color: #f15bb5;
-    border-radius: 10px 10px 0 0;
-    top:-50px;
-    left:15px;
-    box-shadow: inset 0 -15px #f9c74f, inset 0 15px #432818;
+
+  .foto::after{
+    visibility: hidden;
   }
-  
-  .cake:before {
-    content:"";
-    position: absolute;
-    background-color: #432818;
-    width:10px;
-    height:20px;
-    top:5px;
-    border-radius:20px;
-    box-shadow: 10px 5px #f15bb5, 20px 0px #432818, 30px 2px #f15bb5, 40px 5px #432818, 50px 5px #f15bb5, 60px 0px #432818, 70px 5px #f15bb5, 80px 5px #432818, 90px 5px #f15bb5;
-  }
-  
-  .plate:before {
-    content:"";
-    position: absolute;
-    background: repeating-linear-gradient(-45deg, #9b5de5, #9b5de5 3px, #00f5d4 3px, #00f5d4 6px);
-    width:7px;
-    height: 25px;
-    top:-75px;
-    left:61px;
-  }
-  
-  .plate:after {
-    content:"";
-    position: absolute;
-    width:1px;
-    height: 5px;
-    background-color: #333;
-    top:-80px;
-    left:64px;
-  }
-  
-  
-  .flame {
-    position: absolute;
-    background-color: #fb5607;
-    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
-    transform: rotate(-45deg);
-    width:15px;
-    height:15px;
-    opacity:0.7;
-    top:-93px;
-    left:57px;
+  .foto img{
+    width: 100px;
+    padding: 3px;
+    border-radius: 8px;
+    background-color: #73C8A9;
+
   }
 
   /*Style the inside part of the card*/
   .cardInside {
     position: absolute;
-    background-color: #fff;
+    background-color: #fafffd;
     width: 250px;
     height:350px;
     z-index:-1;
@@ -231,15 +191,21 @@ body {
   
   .wishes {
     position: relative;
-    top:-100px;
+    top: -130px;
     margin: 25px;
   }
   
   p {
-    font-family: 'Brush Script MT';
-    color: #333;
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #373B44;
+    text-align: justify;
   }
   
   .name {
-    margin-left:150px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
   }
